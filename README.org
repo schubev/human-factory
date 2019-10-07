@@ -1,0 +1,17 @@
+#+TITLE: Human factory
+
+This browser extension for Firefox and Google Chrome makes filling
+forms with random data a breeze! Focus a field, and press
+`Alt+Shift+J` (`Ctrl+J` on OS X). The extension will detect the kind
+of value the field expects (first name, last name, phone number…) and
+fill it accordingly.
+
+This is still under active development. Amongst the quirks and missing
+features are:
+
+- random phone numbers are always in french mobile format
+  (+33782XXXXXXXX)
+- birthdates are always in french format (DD/MM/YYYY)
+- adress, zipcode, city and country fields are unsupported
+- fields are filled with unrelated data
+- no mechanism for configuration currently

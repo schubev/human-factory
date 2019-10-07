@@ -1,0 +1,13 @@
+{
+	"name": "human-factory",
+	"sources": [
+		"src",
+		{
+			"dir": "__tests__",
+			"type": "dev"
+		}
+	],
+	"bs-dev-dependencies": [
+		"@glennsl/bs-jest"
+	]
+}

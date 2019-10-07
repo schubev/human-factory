@@ -1,0 +1,10 @@
+{
+  "presets": [
+    ["@babel/env", {
+      "targets": {
+        "firefox": "60",
+        "node": "current"
+      }
+    }]
+  ]
+}
