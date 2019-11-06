@@ -2,7 +2,7 @@
 
 This browser extension for Firefox and Google Chrome makes filling
 forms with random data a breeze! Focus a field, and press
-`Alt+Shift+J` (`Ctrl+J` on OS X). The extension will detect the kind
+~Alt+Shift+J~ (~Ctrl+J~ on OS X). The extension will detect the kind
 of value the field expects (first name, last name, phone number…) and
 fill it accordingly.
 
