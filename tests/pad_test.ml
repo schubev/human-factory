@@ -14,7 +14,8 @@ let basicCases =
    ; ("ab", 3, "xy", "axy")
    ; ("ab", 4, "xy", "abxy")
    ; ("ab", 5, "xy", "abaxy")
-   ; ("ab", 6, "xy", "ababxy") |]
+   ; ("ab", 6, "xy", "ababxy")
+   ; ("0", 7, "123456789", "123456789") |]
 
 let basicTest (padWith, outputLength, contents, expected) =
   let testName =

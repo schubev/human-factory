@@ -16,6 +16,11 @@
   },
   "author": "",
   "license": "ISC",
+  "jest": {
+    "testMatch": [
+      "<rootDir>/lib/js/tests/**/*.js"
+    ]
+  },
   "devDependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
