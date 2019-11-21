@@ -4,7 +4,22 @@ let commandOfName = function
   | _ ->
       None
 
-let sendCommand command = ignore @@ Browser.sendToActiveTab command
+let injectedTabs = ref @@ Belt.Set.make ~id:(module Browser.TabCmp)
+
+let ensureScriptInjected tab =
+  let open Belt.Set in
+  if !injectedTabs |. has tab then Js.Promise.resolve ()
+  else
+    let () = injectedTabs := !injectedTabs |. add tab in
+    Browser.executeScriptFileInTab tab "/dist/content.js"
+
+let sendCommand command =
+  let open Js.Promise in
+  Browser.activeTab ()
+  |> then_ (fun tab ->
+         ensureScriptInjected tab
+         |> then_ (fun _ -> Browser.sendMessageToTab tab command))
+  |> ignore
 
 let onCommand name =
   Js.log name ;

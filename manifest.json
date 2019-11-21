@@ -1,6 +1,6 @@
 {
 	"name": "Human Factory",
-	"version": "0.6.0",
+	"version": "0.7.0",
 	"description": "Insert random values in fields for first names, last names, birthdates…",
 	"manifest_version": 2,
 	"permissions": ["activeTab"],
@@ -14,13 +14,6 @@
 		"48": "dist/icon-48.png",
 		"128": "dist/icon-128.png"
 	},
-	"content_scripts": [
-		{
-			"matches": ["<all_urls>"],
-			"js": ["dist/content.js"],
-			"all_frames": true
-		}
-	],
 	"commands": {
 		"fill-focused-field": {
 			"suggested_key": {

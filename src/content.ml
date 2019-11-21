@@ -44,7 +44,8 @@ let onCommand command =
   match command with Commands.FillFocusedField -> onTrigger ()
 
 let main () =
-  Js.log "human factory loaded!" ;
-  Commands.addListener onCommand
+  Js.log "human factory loading..." ;
+  Commands.addListener onCommand ;
+  Js.log "human factory loaded!"
 
 let () = main ()
