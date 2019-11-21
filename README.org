@@ -9,8 +9,6 @@ fill it accordingly.
 This is still under active development. Amongst the quirks and missing
 features are:
 
-- random phone numbers are always in french mobile format
-  (+33782XXXXXXXX)
 - birthdates are always in french format (DD/MM/YYYY)
 - adress, zipcode, city and country fields are unsupported
 - fields are filled with unrelated data
