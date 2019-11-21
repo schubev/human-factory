@@ -10,7 +10,7 @@ let left ?(padWith = " ") outputLength contents =
     in
     let padCount = padCount asr 1 in
     let padder = padder |. Js.String2.concat padder in
-    if padCount = 0 then acc else go padCount padder acc
+    if padCount <= 0 then acc else go padCount padder acc
   in
   go padCount padder ""
   |. Js.String2.substring ~from:0 ~to_:minPadLength
