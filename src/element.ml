@@ -48,7 +48,7 @@ let rec findNext predicate element =
       None
 
 let isInput element =
-  match element |. tagNameGet with "INPUT" -> true | _ -> false
+  match element |. tagNameGet with "INPUT" | "TEXTAREA" -> true | _ -> false
 
 let focusNextInput element =
   match findNext isInput element with
