@@ -25,12 +25,12 @@ let fillInput element =
     element |> Element.placeholderGet |> Js.Nullable.toOption
   in
   let name = firstSome [name; placeholder] in
-  match Field_value.chooseValue {type_; name} with
+  ( match Field_value.chooseValue {type_; name} with
   | Some value ->
-      setInputValue element value ;
-      Element.focusNextInput element
+      setInputValue element value
   | None ->
-      ()
+      () ) ;
+  Element.focusNextInput element
 
 let onTrigger () =
   let element = Element.active () in
