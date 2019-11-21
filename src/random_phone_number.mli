@@ -1,1 +1,1 @@
-val choose : unit -> string
+val choose : ?location:Location.t -> unit -> string

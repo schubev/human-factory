@@ -10,7 +10,10 @@ let isFirstNameClass s =
 let isLastNameClass s =
   [%re "/name/i"] |. Js.Re.test_ s || [%re "/nom/i"] |. Js.Re.test_ s
 
-let isPhoneClass s = [%re "/phone/i"] |. Js.Re.test_ s
+let isPhoneClass s =
+  [%re "/phone/i"] |. Js.Re.test_ s
+  || [%re "/telefon/i"] |. Js.Re.test_ s
+  || [%re "/festnetz/i"] |. Js.Re.test_ s
 
 let isEmailClass s = [%re "/mail/i"] |. Js.Re.test_ s
 
@@ -36,8 +39,16 @@ let chooseType {type_; name} =
       Some Email
   | Some "text", Some name when isBirthdateClass name ->
       Some Birthdate
+  | Some type_, _ when isPhoneClass type_ ->
+      Some PhoneNumber
   | _ ->
       None
+
+external location_hostname : string = "location.hostname" [@@bs.val]
+
+let currentLocation () =
+  location_hostname |. Location.of_hostname
+  |. Belt.Option.getWithDefault France
 
 let chooseValue inputTag =
   chooseType inputTag
@@ -45,7 +56,8 @@ let chooseValue inputTag =
        | Email ->
            Random_email.choose ()
        | PhoneNumber ->
-           Random_phone_number.choose ()
+           let location = currentLocation () in
+           Random_phone_number.choose ~location ()
        | FirstName ->
            Random_first_name.choose ()
        | LastName ->
