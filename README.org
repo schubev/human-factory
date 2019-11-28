@@ -13,3 +13,8 @@ features are:
 - adress, zipcode, city and country fields are unsupported
 - fields are filled with unrelated data
 - no mechanism for configuration currently
+
+** Build instructions
+   Run:
+   1. ~npm install~
+   2. ~make~

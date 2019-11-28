@@ -7,6 +7,9 @@
 			"type": "dev"
 		}
 	],
+	"package-specs": {
+		"module": "commonjs"
+	},
 	"bs-dev-dependencies": [
 		"@glennsl/bs-jest"
 	]

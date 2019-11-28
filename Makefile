@@ -1,12 +1,11 @@
 NAME = human-factory.zip
 MANIFEST = manifest.json
-SOURCES = dist/background.js dist/content.js
 ASSETS = dist/icon-128.png dist/icon-48.png dist/icon-16.png
-DIRT = lib dist
-ZIP_CONTENTS = $(MANIFEST) $(SOURCES) $(ASSETS)
+BUNDLES = dist/content.js dist/background.js
+DIRT = dist
+ZIP_CONTENTS = $(MANIFEST) $(BUNDLES) $(ASSETS)
 
-$(NAME): $(ZIP_CONTENTS)
-	zip $(NAME) $(ZIP_CONTENTS)
+all: $(NAME)
 
 js:
 	npm run bsb:make
@@ -14,13 +13,17 @@ js:
 bundle: js
 	npm run webpack:production
 
+dist/%: assets/%
+	cp $< $@
+
+$(NAME): bundle $(ZIP_CONTENTS)
+	zip $(NAME) $(ZIP_CONTENTS)
+
 clean:
 	rm -fr $(DIRT)
+	npm run bsb:clean
 
 fclean: clean
 	rm -f $(NAME)
-
-dist/%: assets/%
-	cp --reflink=auto $< $@
 
 .PHONY: js bundle clean fclean
