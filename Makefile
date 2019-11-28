@@ -4,6 +4,7 @@ ASSETS = dist/icon-128.png dist/icon-48.png dist/icon-16.png
 BUNDLES = dist/content.js dist/background.js
 DIRT = dist
 ZIP_CONTENTS = $(MANIFEST) $(BUNDLES) $(ASSETS)
+TRACKED = $(shell git ls-tree -r master --name-only)
 
 all: $(NAME)
 
@@ -22,6 +23,9 @@ $(NAME): bundle $(ZIP_CONTENTS)
 clean:
 	rm -fr $(DIRT)
 	npm run bsb:clean
+
+review.zip: $(TRACKED)
+	zip review.zip $(TRACKED)
 
 fclean: clean
 	rm -f $(NAME)
