@@ -1,1 +1,1 @@
-val choose : unit -> string
+val choose : unit -> Js.Date.t

@@ -11,8 +11,4 @@ let randomBirthdate () =
     ~date:(float_of_int @@ randomDay ())
     ()
 
-let randomBirthDateString () =
-  let open Js.Date in
-  randomBirthdate () |. toLocaleDateString
-
-let choose = randomBirthDateString
+let choose () = randomBirthdate ()

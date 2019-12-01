@@ -63,4 +63,4 @@ let chooseValue inputTag =
        | LastName ->
            Random_last_name.choose ()
        | Birthdate ->
-           Random_birthdate.choose ())
+           Random_birthdate.choose () |. Js.Date.toLocaleString)

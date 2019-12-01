@@ -4,5 +4,5 @@ let choose () =
   let last_name = Random_last_name.choose () |> toLowerCase in
   let domain = "example.com" in
   first_name
-  |. concatMany [|"."; last_name; "@"; domain|]
+  |. concatMany [| "."; last_name; "@"; domain |]
   |. Normalize.withoutAccent
