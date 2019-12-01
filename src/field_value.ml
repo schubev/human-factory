@@ -51,16 +51,18 @@ let currentLocation () =
   |. Belt.Option.getWithDefault France
 
 let chooseValue inputTag =
+  let open Human in
+  let location = currentLocation () in
+  let human = random ~location () in
   chooseType inputTag
   |> optionMap (function
        | Email ->
-           Random_email.choose ()
+           human |> email
        | PhoneNumber ->
-           let location = currentLocation () in
-           Random_phone_number.choose ~location ()
+           human |> phone_number
        | FirstName ->
-           Random_first_name.choose ()
+           human |> first_name
        | LastName ->
-           Random_last_name.choose ()
+           human |> last_name
        | Birthdate ->
-           Random_birthdate.choose () |. Js.Date.toLocaleString)
+           human |> birthdate |> Js.Date.toLocaleString)

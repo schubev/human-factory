@@ -1,6 +1,6 @@
 type t
 
-val random : unit -> t
+val random : ?location:Location.t -> unit -> t
 
 val first_name : t -> string
 
