@@ -24,4 +24,4 @@ let email {first_name; last_name} =
   let domain = "example.com" in
   first_name
   |. concatMany [|"."; last_name; "@"; domain|]
-  |. Normalize.withoutAccent
+  |. Normalize.withoutAccent |. toLowerCase

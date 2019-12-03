@@ -53,7 +53,7 @@ let currentLocation () =
 let chooseValue inputTag =
   let open Human in
   let location = currentLocation () in
-  let human = random ~location () in
+  let human = Current_human.getCurrentHuman ~location in
   chooseType inputTag
   |> optionMap (function
        | Email ->
