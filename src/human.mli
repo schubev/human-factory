@@ -11,3 +11,5 @@ val birthdate : t -> Js.Date.t
 val phone_number : t -> string
 
 val email : t -> string
+
+val email_of_names : string -> string -> string

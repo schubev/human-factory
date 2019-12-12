@@ -19,9 +19,13 @@ let birthdate {birthdate} = birthdate
 
 let phone_number {phone_number} = phone_number
 
-let email {first_name; last_name} =
+let email_of_names first_name last_name =
   let open Js.String2 in
   let domain = "example.com" in
   first_name
   |. concatMany [|"."; last_name; "@"; domain|]
   |. Normalize.withoutAccent |. toLowerCase
+  |. replaceByRe [%re "/ß/g"] "ss"
+  |. replaceByRe [%re "/-/g"] "."
+
+let email {first_name; last_name} = email_of_names first_name last_name
