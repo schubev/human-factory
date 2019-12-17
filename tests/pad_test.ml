@@ -15,7 +15,8 @@ let basicCases =
    ; ("ab", 4, "xy", "abxy")
    ; ("ab", 5, "xy", "abaxy")
    ; ("ab", 6, "xy", "ababxy")
-   ; ("0", 7, "123456789", "123456789") |]
+   ; ("0", 7, "123456789", "123456789")
+   ; ("", 2, "toto", "toto") |]
 
 let basicTest (padWith, outputLength, contents, expected) =
   let testName =
@@ -26,7 +27,4 @@ let basicTest (padWith, outputLength, contents, expected) =
       expect (Pad.left ~padWith outputLength contents) |> toEqual expected)
 
 let () =
-  describe "Pad.left" (fun () ->
-      basicCases |. Js.Array2.forEach basicTest ;
-      test "empty padWith throws" (fun () ->
-          expect (fun () -> Pad.left ~padWith:"" 2 "toto") |> toThrow))
+  describe "Pad.left" (fun () -> basicCases |. Js.Array2.forEach basicTest)
