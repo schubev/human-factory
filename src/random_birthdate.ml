@@ -1,8 +1,8 @@
-let randomYear () = 1960 + Random.int 50
+let randomYear () = Js.Math.random_int 1960 2010
 
-let randomMonth () = 1 + Random.int 12
+let randomMonth () = Js.Math.random_int 1 13
 
-let randomDay () = 1 + Random.int 25
+let randomDay () = Js.Math.random_int 1 29
 
 let randomBirthdate () =
   Js.Date.makeWithYMD
