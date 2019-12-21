@@ -7,8 +7,10 @@ let stringOfInputType = function
       "none"
   | Some Email ->
       "email"
-  | Some PhoneNumber ->
-      "phone number"
+  | Some MobilePhoneNumber ->
+      "mobile phone number"
+  | Some LandlinePhoneNumber ->
+      "landline phone number"
   | Some FirstName ->
       "first name"
   | Some LastName ->
@@ -34,12 +36,13 @@ let basicCases =
    ; ({type_= Some "email"; name= Some "email"}, Some Email)
    ; ({type_= Some "email"; name= Some "toto"}, Some Email)
    ; ({type_= Some "email"; name= Some "phone_number"}, Some Email)
-   ; ({type_= Some "tel"; name= None}, Some PhoneNumber)
-   ; ({type_= Some "tel"; name= Some "phone"}, Some PhoneNumber)
-   ; ({type_= Some "tel"; name= Some "toto"}, Some PhoneNumber)
-   ; ({type_= Some "tel"; name= Some "email"}, Some PhoneNumber)
-   ; ({type_= Some "text"; name= Some "Mobiltelefon"}, Some PhoneNumber)
-   ; ({type_= Some "text"; name= Some "Festnetzanschluss"}, Some PhoneNumber)
+   ; ({type_= Some "tel"; name= None}, Some MobilePhoneNumber)
+   ; ({type_= Some "tel"; name= Some "phone"}, Some MobilePhoneNumber)
+   ; ({type_= Some "tel"; name= Some "toto"}, Some MobilePhoneNumber)
+   ; ({type_= Some "tel"; name= Some "email"}, Some MobilePhoneNumber)
+   ; ({type_= Some "text"; name= Some "Mobiltelefon"}, Some MobilePhoneNumber)
+   ; ( {type_= Some "text"; name= Some "Festnetzanschluss"}
+     , Some MobilePhoneNumber )
    ; ({type_= Some "text"; name= None}, None)
    ; ({type_= Some "text"; name= Some "email"}, Some Email)
    ; ({type_= Some "text"; name= Some "mail"}, Some Email)
@@ -55,10 +58,11 @@ let basicCases =
    ; ({type_= Some "text"; name= Some "givenname"}, Some FirstName)
    ; ({type_= Some "text"; name= Some "given_name"}, Some FirstName)
    ; ({type_= Some "text"; name= Some {js|prénom|js}}, Some FirstName)
-   ; ({type_= Some "text"; name= Some "phone"}, Some PhoneNumber)
-   ; ({type_= Some "text"; name= Some "phone_number"}, Some PhoneNumber)
-   ; ({type_= Some "text"; name= Some "telephone"}, Some PhoneNumber)
-   ; ({type_= Some "text"; name= Some "telephone_number"}, Some PhoneNumber)
+   ; ({type_= Some "text"; name= Some "phone"}, Some MobilePhoneNumber)
+   ; ({type_= Some "text"; name= Some "phone_number"}, Some MobilePhoneNumber)
+   ; ({type_= Some "text"; name= Some "telephone"}, Some MobilePhoneNumber)
+   ; ( {type_= Some "text"; name= Some "telephone_number"}
+     , Some MobilePhoneNumber )
    ; ({type_= Some "text"; name= Some "birthdate"}, Some Birthdate)
    ; ({type_= Some "text"; name= Some "birth"}, Some Birthdate)
    ; ({type_= Some "text"; name= Some "birth_date"}, Some Birthdate)

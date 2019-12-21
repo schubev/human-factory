@@ -1,6 +1,12 @@
 type inputTag = {type_: string option; name: string option}
 
-type inputType = Email | PhoneNumber | FirstName | LastName | Birthdate
+type inputType =
+  | Email
+  | MobilePhoneNumber
+  | LandlinePhoneNumber
+  | FirstName
+  | LastName
+  | Birthdate
 
 let isFirstNameClass s =
   [%re "/first.*name/i"] |. Js.Re.test_ s
@@ -28,19 +34,19 @@ let chooseType {type_; name} =
   | Some "email", _ ->
       Some Email
   | Some "tel", _ ->
-      Some PhoneNumber
+      Some MobilePhoneNumber
   | Some "text", Some name when isFirstNameClass name ->
       Some FirstName
   | Some "text", Some name when isLastNameClass name ->
       Some LastName
   | Some "text", Some name when isPhoneClass name ->
-      Some PhoneNumber
+      Some MobilePhoneNumber
   | Some "text", Some name when isEmailClass name ->
       Some Email
   | Some "text", Some name when isBirthdateClass name ->
       Some Birthdate
   | Some type_, _ when isPhoneClass type_ ->
-      Some PhoneNumber
+      Some MobilePhoneNumber
   | _ ->
       None
 
@@ -58,7 +64,7 @@ let chooseValue inputTag =
   |> optionMap (function
        | Email ->
            human |> email
-       | PhoneNumber ->
+       | LandlinePhoneNumber | MobilePhoneNumber ->
            human |> phone_number
        | FirstName ->
            human |> first_name
