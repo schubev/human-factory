@@ -73,10 +73,10 @@ let chooseValue inputTag =
        | Email ->
            human |> email
        | LandlinePhoneNumber | MobilePhoneNumber ->
-           human |> phone_number
+           human |> phoneNumber
        | FirstName ->
-           human |> first_name
+           human |> firstName
        | LastName ->
-           human |> last_name
+           human |> lastName
        | Birthdate ->
            human |> birthdate |> Js.Date.toLocaleString)

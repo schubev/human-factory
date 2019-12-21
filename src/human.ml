@@ -1,34 +1,34 @@
 type t =
   { location: Location.t
-  ; first_name: string
-  ; last_name: string
+  ; firstName: string
+  ; lastName: string
   ; birthdate: Js.Date.t
-  ; phone_number: string }
+  ; phoneNumber: string }
 
 let random ?(location = Location.France) () =
-  let first_name = Random_first_name.choose () in
-  let last_name = Random_last_name.choose () in
+  let firstName = Random_first_name.choose () in
+  let lastName = Random_last_name.choose () in
   let birthdate = Random_birthdate.choose () in
-  let phone_number = Random_phone_number.choose ~location () in
-  {location; first_name; last_name; birthdate; phone_number}
+  let phoneNumber = Random_phone_number.choose ~location () in
+  {location; firstName; lastName; birthdate; phoneNumber}
 
-let first_name {first_name} = first_name
+let firstName {firstName} = firstName
 
-let last_name {last_name} = last_name
+let lastName {lastName} = lastName
 
 let birthdate {birthdate} = birthdate
 
-let phone_number {phone_number} = phone_number
+let phoneNumber {phoneNumber} = phoneNumber
 
 let location {location} = location
 
-let email_of_names first_name last_name =
+let emailOfNames firstName lastName =
   let open Js.String2 in
   let domain = "example.com" in
-  first_name
-  |. concatMany [|"."; last_name; "@"; domain|]
+  firstName
+  |. concatMany [|"."; lastName; "@"; domain|]
   |. Normalize.withoutAccent |. toLowerCase
   |. replaceByRe [%re "/ß/g"] "ss"
   |. replaceByRe [%re "/-/g"] "."
 
-let email {first_name; last_name} = email_of_names first_name last_name
+let email {firstName; lastName} = emailOfNames firstName lastName

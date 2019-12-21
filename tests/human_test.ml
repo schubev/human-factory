@@ -12,12 +12,12 @@ let cases =
    ; ("x", {js|ö|js}, "x.oe@example.com")
    ; ("Toto", {js|Günther|js}, "toto.guenther@example.com") |]
 
-let basicTest (first_name, last_name, email) =
+let basicTest (firstName, lastName, email) =
   let testName =
-    Printf.sprintf "Human.email %s %s = %s" first_name last_name email
+    Printf.sprintf "Human.email %s %s = %s" firstName lastName email
   in
   test testName (fun () ->
-      expect (Human.email_of_names first_name last_name) |> toEqual email)
+      expect (Human.emailOfNames firstName lastName) |> toEqual email)
 
 let () =
   describe "Human.email" (fun () -> cases |. Js.Array2.forEach basicTest)

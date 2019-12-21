@@ -1,7 +1,7 @@
 module P = struct
   type el = string
 
-  let german_females =
+  let germanFemales =
     [| {js|Alina|js}
      ; {js|Anna|js}
      ; {js|Anne|js}
@@ -38,7 +38,7 @@ module P = struct
      ; {js|Vanessa|js}
      ; {js|Yasmin|js} |]
 
-  let german_males =
+  let germanMales =
     [| {js|Alexander|js}
      ; {js|Daniel|js}
      ; {js|David|js}
@@ -75,7 +75,7 @@ module P = struct
      ; {js|Tobias|js}
      ; {js|Tom|js} |]
 
-  let french_females =
+  let frenchFemales =
     [| {js|Adeline|js}
      ; {js|Agathe|js}
      ; {js|Alexandra|js}
@@ -177,7 +177,7 @@ module P = struct
      ; {js|Valentine|js}
      ; {js|Victoria|js} |]
 
-  let french_males =
+  let frenchMales =
     [| {js|Adrien|js}
      ; {js|Alexandre|js}
      ; {js|Alexis|js}
@@ -281,7 +281,7 @@ module P = struct
 
   let elements =
     Js.Array2.concatMany [||]
-      [|german_females; german_males; french_females; french_males|]
+      [|germanFemales; germanMales; frenchFemales; frenchMales|]
 end
 
 include Random_collection.Make (P)
