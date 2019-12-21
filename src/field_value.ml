@@ -34,19 +34,19 @@ let chooseType {type_; name} =
   | Some "email", _ ->
       Some Email
   | Some "tel", _ ->
-      Some MobilePhoneNumber
+      Some LandlinePhoneNumber
   | Some "text", Some name when isFirstNameClass name ->
       Some FirstName
   | Some "text", Some name when isLastNameClass name ->
       Some LastName
   | Some "text", Some name when isPhoneClass name ->
-      Some MobilePhoneNumber
+      Some LandlinePhoneNumber
   | Some "text", Some name when isEmailClass name ->
       Some Email
   | Some "text", Some name when isBirthdateClass name ->
       Some Birthdate
   | Some type_, _ when isPhoneClass type_ ->
-      Some MobilePhoneNumber
+      Some LandlinePhoneNumber
   | _ ->
       None
 
