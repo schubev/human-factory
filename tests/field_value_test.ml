@@ -37,10 +37,13 @@ let basicCases =
    ; ({type_= Some "email"; name= Some "toto"}, Some Email)
    ; ({type_= Some "email"; name= Some "phone_number"}, Some Email)
    ; ({type_= Some "tel"; name= None}, Some LandlinePhoneNumber)
+   ; ({type_= Some "tel"; name= Some "mobile"}, Some MobilePhoneNumber)
+   ; ({type_= Some "tel"; name= Some "mobile_phone"}, Some MobilePhoneNumber)
+   ; ({type_= Some "tel"; name= Some "num_mobile"}, Some MobilePhoneNumber)
    ; ({type_= Some "tel"; name= Some "phone"}, Some LandlinePhoneNumber)
    ; ({type_= Some "tel"; name= Some "toto"}, Some LandlinePhoneNumber)
    ; ({type_= Some "tel"; name= Some "email"}, Some LandlinePhoneNumber)
-   ; ({type_= Some "text"; name= Some "Mobiltelefon"}, Some LandlinePhoneNumber)
+   ; ({type_= Some "text"; name= Some "Mobiltelefon"}, Some MobilePhoneNumber)
    ; ( {type_= Some "text"; name= Some "Festnetzanschluss"}
      , Some LandlinePhoneNumber )
    ; ({type_= Some "text"; name= None}, None)
@@ -59,6 +62,7 @@ let basicCases =
    ; ({type_= Some "text"; name= Some "given_name"}, Some FirstName)
    ; ({type_= Some "text"; name= Some {js|prénom|js}}, Some FirstName)
    ; ({type_= Some "text"; name= Some "phone"}, Some LandlinePhoneNumber)
+   ; ({type_= Some "text"; name= Some "mobile_phone"}, Some MobilePhoneNumber)
    ; ({type_= Some "text"; name= Some "phone_number"}, Some LandlinePhoneNumber)
    ; ({type_= Some "text"; name= Some "telephone"}, Some LandlinePhoneNumber)
    ; ( {type_= Some "text"; name= Some "telephone_number"}
