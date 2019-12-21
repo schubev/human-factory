@@ -13,3 +13,5 @@ val phone_number : t -> string
 val email : t -> string
 
 val email_of_names : string -> string -> string
+
+val location : t -> Location.t
