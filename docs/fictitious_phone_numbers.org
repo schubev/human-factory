@@ -1,0 +1,23 @@
+Human-factory should not produce phone numbers which could be
+assigned. AFAIK many countries’ phone numbering plans include blocks
+of phone numbers reserved for works of art which cannot ever call or
+be called, such as the USA’s 555-XXXX phone numbers. Here I will track
+whatever official documentation I can find about this.
+
+** France
+   The [[https://www.arcep.fr][ARCEP]] is responsible for assigning blocks of phone
+   numbers. Section 2.5.12 of the [[https://www.arcep.fr/uploads/tx_gsavis/18-0881.pdf][Décision n°2018-0881 modifiée de
+   l’Autorité de régulation des communications électroniques et des
+   postes en date du 24 juillet 2018 établissant le plan national de
+   numérotation et ses règles de gestion]] indicates the following
+   blocks are reserved for audiovisual works of art.
+   - +33 1 99 00 XX XX XX (geographic)
+   - +33 2 61 91 XX XX XX (geographic)
+   - +33 3 53 01 XX XX XX (geographic)
+   - +33 4 65 71 XX XX XX (geographic)
+   - +33 5 36 49 XX XX XX (geographic)
+   - +33 6 39 98 XX XX XX (mobile)
+
+   The document’s link was available from
+   https://extranet.arcep.fr/portail/Op%C3%A9rateursCE/Num%C3%A9rotation.aspx#FAQ
+   and a copy is stored in this repo at [[./18-0881.pdf]].
