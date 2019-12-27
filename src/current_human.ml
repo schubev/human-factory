@@ -16,11 +16,11 @@ let bumpTimeout () =
       () ) ;
   timeout := Some (Js.Global.setTimeout clear timeoutMilliseconds)
 
-let reset location = current := Some (Human.random ~location (), location)
+let reset location = current := Some (Human.random ~location ())
 
 let rec getCurrentHuman ~location =
   match !current with
-  | Some (currentHuman, currentLocation) when currentLocation = location ->
+  | Some currentHuman when Human.location currentHuman = location ->
       bumpTimeout () ; currentHuman
   | _ ->
       clear () ; reset location ; bumpTimeout () ; getCurrentHuman ~location
