@@ -1,6 +1,6 @@
 let randomSuffixFrance prefix =
   let suffix =
-    Js.Math.random_int 0 1000000 |> string_of_int |> Pad.left ~padWith:"0" 6
+    Js.Math.random_int 0 10000 |> string_of_int |> Pad.left ~padWith:"0" 4
   in
   prefix ^ suffix
 
