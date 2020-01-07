@@ -8,7 +8,9 @@ val lastName : t -> string
 
 val birthdate : t -> Js.Date.t
 
-val phoneNumber : t -> string
+val mobilePhoneNumber : t -> string
+
+val landlinePhoneNumber : t -> string
 
 val email : t -> string
 

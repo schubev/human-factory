@@ -23,9 +23,22 @@ let chooseLandlineGermany () =
   in
   "+4930" ^ digits
 
-let choose ?(location = Location.France) () =
+let chooseMobileGermany () =
+  let digits =
+    Js.Math.random_int 0 1000000000 |> string_of_int |> Pad.left ~padWith:"0" 7
+  in
+  "+4915" ^ digits
+
+let chooseMobile ?(location = Location.France) =
   match location with
   | France ->
-      chooseMobileFrance ()
+      chooseMobileFrance
   | Germany ->
-      chooseLandlineGermany ()
+      chooseMobileGermany
+
+let chooseLandline ?(location = Location.France) =
+  match location with
+  | France ->
+      chooseLandlineFrance
+  | Germany ->
+      chooseLandlineGermany

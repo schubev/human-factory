@@ -3,14 +3,21 @@ type t =
   ; firstName: string
   ; lastName: string
   ; birthdate: Js.Date.t
-  ; phoneNumber: string }
+  ; mobilePhoneNumber: string
+  ; landlinePhoneNumber: string }
 
 let random ?(location = Location.France) () =
   let firstName = Random_first_name.choose () in
   let lastName = Random_last_name.choose () in
   let birthdate = Random_birthdate.choose () in
-  let phoneNumber = Random_phone_number.choose ~location () in
-  {location; firstName; lastName; birthdate; phoneNumber}
+  let mobilePhoneNumber = Random_phone_number.chooseMobile ~location () in
+  let landlinePhoneNumber = Random_phone_number.chooseLandline ~location () in
+  { location
+  ; firstName
+  ; lastName
+  ; birthdate
+  ; mobilePhoneNumber
+  ; landlinePhoneNumber }
 
 let firstName {firstName} = firstName
 
@@ -18,7 +25,9 @@ let lastName {lastName} = lastName
 
 let birthdate {birthdate} = birthdate
 
-let phoneNumber {phoneNumber} = phoneNumber
+let mobilePhoneNumber {mobilePhoneNumber} = mobilePhoneNumber
+
+let landlinePhoneNumber {landlinePhoneNumber} = landlinePhoneNumber
 
 let location {location} = location
 

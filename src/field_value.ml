@@ -72,8 +72,10 @@ let chooseValue inputTag =
   |> optionMap (function
        | Email ->
            human |> email
-       | LandlinePhoneNumber | MobilePhoneNumber ->
-           human |> phoneNumber
+       | LandlinePhoneNumber ->
+           human |> landlinePhoneNumber
+       | MobilePhoneNumber ->
+           human |> mobilePhoneNumber
        | FirstName ->
            human |> firstName
        | LastName ->
