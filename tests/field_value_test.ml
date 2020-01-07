@@ -44,6 +44,10 @@ let basicCases =
    ; ({type_= Some "tel"; name= Some "toto"}, Some LandlinePhoneNumber)
    ; ({type_= Some "tel"; name= Some "email"}, Some LandlinePhoneNumber)
    ; ({type_= Some "text"; name= Some "Mobiltelefon"}, Some MobilePhoneNumber)
+   ; ( {type_= Some "text"; name= Some {js|Téléphone portable|js}}
+     , Some MobilePhoneNumber )
+   ; ( {type_= Some "text"; name= Some {js|Téléphone fixe|js}}
+     , Some LandlinePhoneNumber )
    ; ( {type_= Some "text"; name= Some "Festnetzanschluss"}
      , Some LandlinePhoneNumber )
    ; ({type_= Some "text"; name= None}, None)
@@ -82,7 +86,10 @@ let basicTest (input, expected) =
       (stringOfNameField input.name)
       (stringOfInputType expected)
   in
-  test testName (fun () -> expect (chooseType input) |> toEqual expected)
+  test testName (fun () ->
+      let expectedAsString = stringOfInputType expected in
+      let actualAsString = chooseType input |> stringOfInputType in
+      expect actualAsString |> toEqual expectedAsString)
 
 let () =
   describe "Field_value.chooseType" (fun () ->

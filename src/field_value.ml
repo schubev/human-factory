@@ -21,7 +21,8 @@ let isPhoneClass s =
   || [%re "/telefon/i"] |. Js.Re.test_ s
   || [%re "/festnetz/i"] |. Js.Re.test_ s
 
-let isMobileClass s = [%re "/mob/i"] |. Js.Re.test_ s
+let isMobileClass s =
+  [%re "/mob/i"] |. Js.Re.test_ s || [%re "/portable/i"] |. Js.Re.test_ s
 
 let isMobilePhoneClass s = isPhoneClass s && isMobileClass s
 
@@ -68,6 +69,7 @@ let chooseValue inputTag =
   let open Human in
   let location = currentLocation () in
   let human = Current_human.getCurrentHuman ~location in
+  Js.log inputTag ;
   chooseType inputTag
   |> optionMap (function
        | Email ->
