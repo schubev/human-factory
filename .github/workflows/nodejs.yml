@@ -12,5 +12,5 @@ jobs:
       with:
         node-version: 12.x
     - run: npm install
-    - run: npm run bsb:make
-    - run: npm run test
+    - run: make
+    - run: make test

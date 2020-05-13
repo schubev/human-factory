@@ -30,4 +30,7 @@ review.zip: $(TRACKED)
 fclean: clean
 	rm -f $(NAME)
 
-.PHONY: js bundle clean fclean
+test:
+	npm run test
+
+.PHONY: js bundle clean fclean test
