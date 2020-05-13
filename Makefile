@@ -20,6 +20,10 @@ dist/%: assets/%
 $(NAME): bundle $(ZIP_CONTENTS)
 	zip $(NAME) $(ZIP_CONTENTS)
 
+artifact: bundle $(ZIP_CONTENTS)
+	mkdir -p artifact
+	cp $(ZIP_CONTENTS) artifact/
+
 clean:
 	rm -fr $(DIRT)
 	npm run bsb:clean
@@ -33,4 +37,4 @@ fclean: clean
 test:
 	npm run test
 
-.PHONY: js bundle clean fclean test
+.PHONY: js bundle clean fclean test artifact

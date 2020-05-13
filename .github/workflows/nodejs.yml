@@ -17,5 +17,5 @@ jobs:
     - name: Save artifact
       uses: actions/upload-artifact@v2
       with:
-        name: human-factory.zip
-        path: ./human-factory.zip
+        name: human-factory
+        path: ./artifact
