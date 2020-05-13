@@ -36,6 +36,8 @@ let optionMap f = function Some x -> Some (f x) | None -> None
 let chooseType {type_; name} =
   let name = name |> optionMap Normalize.withoutAccent in
   match (type_, name) with
+  | Some _, Some name when isBirthdateClass name ->
+      Some Birthdate
   | Some "email", _ ->
       Some Email
   | Some "tel", Some name when isMobileClass name ->
@@ -52,8 +54,6 @@ let chooseType {type_; name} =
       Some LandlinePhoneNumber
   | Some "text", Some name when isEmailClass name ->
       Some Email
-  | Some "text", Some name when isBirthdateClass name ->
-      Some Birthdate
   | Some type_, _ when isPhoneClass type_ ->
       Some LandlinePhoneNumber
   | _ ->

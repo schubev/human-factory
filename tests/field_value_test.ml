@@ -28,7 +28,7 @@ let stringOfNameField = function
   | None ->
       ""
   | Some name ->
-      Printf.sprintf " name=%S" name
+      Printf.sprintf " name=\"%s\"" name
 
 let basicCases =
   [| ({type_= None; name= None}, None)
@@ -37,6 +37,7 @@ let basicCases =
    ; ({type_= Some "email"; name= Some "toto"}, Some Email)
    ; ({type_= Some "email"; name= Some "phone_number"}, Some Email)
    ; ({type_= Some "tel"; name= None}, Some LandlinePhoneNumber)
+   ; ({type_= Some "tel"; name= Some "patient.birthdate"}, Some Birthdate)
    ; ({type_= Some "tel"; name= Some "mobile"}, Some MobilePhoneNumber)
    ; ({type_= Some "tel"; name= Some "mobile_phone"}, Some MobilePhoneNumber)
    ; ({type_= Some "tel"; name= Some "num_mobile"}, Some MobilePhoneNumber)
