@@ -1,6 +1,6 @@
 {
 	"name": "Human Factory",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Insert random values in fields for first names, last names, birthdates…",
 	"manifest_version": 2,
 	"permissions": ["activeTab"],
