@@ -69,7 +69,6 @@ let chooseValue inputTag =
   let open Human in
   let location = currentLocation () in
   let human = Current_human.getCurrentHuman ~location in
-  Js.log inputTag ;
   chooseType inputTag
   |> optionMap (function
        | Email ->

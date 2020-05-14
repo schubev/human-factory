@@ -34,18 +34,12 @@ let fillInput element =
 
 let onTrigger () =
   let element = Element.active () in
-  Js.log element ;
   let elementTypeName = element |. Element.tagNameGet in
   if elementTypeName = "INPUT" then fillInput element
 
 let onCommand command =
-  Js.log "received command" ;
-  Js.log command ;
   match command with Commands.FillFocusedField -> onTrigger ()
 
-let main () =
-  Js.log "human factory loading..." ;
-  Commands.addListener onCommand ;
-  Js.log "human factory loaded!"
+let main () = Commands.addListener onCommand
 
 let () = main ()

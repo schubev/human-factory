@@ -22,12 +22,9 @@ let sendCommand command =
   |> ignore
 
 let onCommand name =
-  Js.log name ;
   let command = commandOfName name in
   match command with Some command -> sendCommand command | None -> ()
 
-let main () =
-  Js.log "background human factory loaded!" ;
-  Browser.addCommandListener onCommand
+let main () = Browser.addCommandListener onCommand
 
 let () = main ()
