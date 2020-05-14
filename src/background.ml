@@ -11,7 +11,7 @@ let ensureScriptInjected tab =
   if !injectedTabs |. has tab then Js.Promise.resolve ()
   else
     let () = injectedTabs := !injectedTabs |. add tab in
-    Browser.executeScriptFileInTab tab "/dist/content.js"
+    Browser.executeScriptFileInTab tab "/content.js"
 
 let sendCommand command =
   let open Js.Promise in
