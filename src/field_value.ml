@@ -83,4 +83,4 @@ let chooseValue inputTag =
        | LastName ->
            human |> lastName
        | Birthdate ->
-           human |> birthdate |> Js.Date.toLocaleString)
+           human |> birthdate |> Js.Date.toLocaleDateString)
