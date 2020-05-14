@@ -30,8 +30,6 @@ type commands = {onCommand: onCommand} [@@bs.deriving abstract]
 
 type t = {commands: commands; tabs: tabs} [@@bs.deriving abstract]
 
-external labelLog : string -> 'a -> unit = "console.log" [@@bs.val]
-
 external browser : t = "chrome" [@@bs.val]
 
 let addCommandListener listener =
@@ -39,8 +37,6 @@ let addCommandListener listener =
 
 let sendMessageToTab tab message =
   let tabId = tab |. idGet in
-  labelLog "sending message" message ;
-  labelLog "to tab" tabId ;
   browser |. tabsGet |. sendMessage tabId message
 
 let activeTab () =
