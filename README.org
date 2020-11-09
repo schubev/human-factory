@@ -13,7 +13,13 @@ features are:
 - adress, zipcode, city and country fields are unsupported
 - no mechanism for configuration currently
 
+** Where to get the extension?
+
+- On the Chrome web store: https://chrome.google.com/webstore/detail/human-factory/hhbljejpmpbkfflnekomlhpfoohmjpmg
+- Amongst the Firefox Browser Add-ons: https://addons.mozilla.org/en-GB/firefox/addon/human-factory/
+
 ** Build instructions
    Run:
    1. ~npm install~
    2. ~make~
+
